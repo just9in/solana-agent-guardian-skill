@@ -15,7 +15,7 @@ https://github.com/just9in/solana-agent-guardian-skill
 ## PR to skill-bounty
 
 ```text
-https://github.com/solanabr/skill-bounty/pull/YOUR_PR_NUMBER
+https://github.com/solanabr/skill-bounty/pull/13
 ```
 
 ## What problem does it solve?
