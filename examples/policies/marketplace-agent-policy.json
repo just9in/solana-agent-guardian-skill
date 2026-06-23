@@ -1,0 +1,53 @@
+{
+  "policy_id": "marketplace-payout-agent-v1",
+  "network": "mainnet-beta",
+  "agent": {
+    "name": "marketplace-payout-agent",
+    "environment": "production"
+  },
+  "limits": {
+    "max_single_tx_sol": 0,
+    "max_daily_spend_sol": 0,
+    "max_single_tx_usdc": 50,
+    "max_daily_spend_usdc": 500,
+    "max_balance_percent_per_tx": 20
+  },
+  "programs": {
+    "allow": [
+      "spl-token",
+      "associated-token-account",
+      "system-program",
+      "marketplace-escrow-program"
+    ],
+    "deny_unknown": true
+  },
+  "tokens": {
+    "allow": [
+      "USDC"
+    ],
+    "deny_unknown": true
+  },
+  "approval_required": {
+    "new_recipient_above_usdc": 10,
+    "unknown_token": true,
+    "amount_over_usdc": 25,
+    "simulation_warnings": true,
+    "unknown_cpi": true
+  },
+  "blocked_actions": [
+    "direct_transfer_outside_escrow",
+    "duplicate_payout",
+    "change_payout_recipient_after_task_creation",
+    "change_authority",
+    "unknown_program_call",
+    "policy_update_by_agent"
+  ],
+  "logging": {
+    "store_intent": true,
+    "store_unsigned_transaction": true,
+    "store_simulation_result": true,
+    "store_policy_decision": true,
+    "store_approval": true,
+    "store_final_signature": true
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "policy_id": "conservative-agent-mainnet-v1",
+  "network": "mainnet-beta",
+  "agent": {
+    "name": "general-purpose-agent",
+    "environment": "production"
+  },
+  "limits": {
+    "max_single_tx_sol": 0.02,
+    "max_daily_spend_sol": 0.1,
+    "max_slippage_bps": 30,
+    "max_balance_percent_per_tx": 5
+  },
+  "programs": {
+    "allow": [
+      "system-program",
+      "spl-token",
+      "associated-token-account"
+    ],
+    "deny_unknown": true
+  },
+  "tokens": {
+    "allow": [
+      "SOL",
+      "USDC"
+    ],
+    "deny_unknown": true
+  },
+  "approval_required": {
+    "new_recipient_above_sol": 0.005,
+    "unknown_token": true,
+    "amount_over_sol": 0.01,
+    "simulation_warnings": true,
+    "unknown_cpi": true
+  },
+  "blocked_actions": [
+    "transfer_full_balance",
+    "close_account_to_unknown_recipient",
+    "change_authority",
+    "program_upgrade",
+    "unknown_program_call",
+    "export_private_key",
+    "policy_update_by_agent"
+  ],
+  "logging": {
+    "store_intent": true,
+    "store_unsigned_transaction": true,
+    "store_simulation_result": true,
+    "store_policy_decision": true,
+    "store_approval": true,
+    "store_final_signature": true
+  }
+}

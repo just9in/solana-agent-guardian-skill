@@ -1,0 +1,32 @@
+{
+  "fixture_id": "blocked-unknown-program-call",
+  "expected_decision": "BLOCK",
+  "policy_hint": "conservative-agent-policy.json",
+  "intent": {
+    "action": "unknown"
+  },
+  "decoded_transaction": {
+    "programs": [
+      "unknown-program-111111111111111111111111111"
+    ],
+    "unknown_programs": [
+      "unknown-program-111111111111111111111111111"
+    ],
+    "actions": [
+      "unknown_program_call"
+    ],
+    "sol_spend": 0.001,
+    "balance_percent": 1,
+    "new_recipient": false,
+    "authority_changes": [],
+    "closes_accounts": false
+  },
+  "simulation": {
+    "status": "pass",
+    "err": null,
+    "warnings": [
+      "unknown program logs could not be decoded"
+    ],
+    "units_consumed": 120000
+  }
+}

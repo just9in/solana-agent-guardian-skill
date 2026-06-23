@@ -1,0 +1,31 @@
+{
+  "fixture_id": "blocked-large-transfer",
+  "expected_decision": "BLOCK",
+  "policy_hint": "conservative-agent-policy.json",
+  "intent": {
+    "action": "transfer",
+    "asset": "SOL",
+    "amount_sol": 4.6,
+    "recipient": "new-recipient-placeholder"
+  },
+  "decoded_transaction": {
+    "programs": [
+      "system-program"
+    ],
+    "unknown_programs": [],
+    "actions": [
+      "transfer"
+    ],
+    "sol_spend": 4.6,
+    "balance_percent": 92,
+    "new_recipient": true,
+    "authority_changes": [],
+    "closes_accounts": false
+  },
+  "simulation": {
+    "status": "pass",
+    "err": null,
+    "warnings": [],
+    "units_consumed": 500
+  }
+}

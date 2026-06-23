@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Solana Agent Guardian Wallet Policy",
+  "type": "object",
+  "required": [
+    "policy_id",
+    "network",
+    "agent",
+    "limits",
+    "programs",
+    "approval_required",
+    "blocked_actions",
+    "logging"
+  ],
+  "properties": {
+    "policy_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "network": {
+      "type": "string",
+      "enum": [
+        "localnet",
+        "devnet",
+        "testnet",
+        "mainnet-beta"
+      ]
+    },
+    "agent": {
+      "type": "object",
+      "required": [
+        "name",
+        "environment"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "environment": {
+          "type": "string",
+          "enum": [
+            "local",
+            "development",
+            "staging",
+            "production"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "limits": {
+      "type": "object",
+      "properties": {
+        "max_single_tx_sol": {
+          "type": "number",
+          "minimum": 0
+        },
+        "max_daily_spend_sol": {
+          "type": "number",
+          "minimum": 0
+        },
+        "max_single_tx_usdc": {
+          "type": "number",
+          "minimum": 0
+        },
+        "max_daily_spend_usdc": {
+          "type": "number",
+          "minimum": 0
+        },
+        "max_slippage_bps": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "max_balance_percent_per_tx": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    "programs": {
+      "type": "object",
+      "required": [
+        "allow",
+        "deny_unknown"
+      ],
+      "properties": {
+        "allow": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deny_unknown": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "tokens": {
+      "type": "object",
+      "properties": {
+        "allow": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deny_unknown": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "approval_required": {
+      "type": "object",
+      "properties": {
+        "new_recipient_above_sol": {
+          "type": "number",
+          "minimum": 0
+        },
+        "new_recipient_above_usdc": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unknown_token": {
+          "type": "boolean"
+        },
+        "amount_over_sol": {
+          "type": "number",
+          "minimum": 0
+        },
+        "amount_over_usdc": {
+          "type": "number",
+          "minimum": 0
+        },
+        "simulation_warnings": {
+          "type": "boolean"
+        },
+        "unknown_cpi": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "blocked_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "logging": {
+      "type": "object",
+      "properties": {
+        "store_intent": {
+          "type": "boolean"
+        },
+        "store_unsigned_transaction": {
+          "type": "boolean"
+        },
+        "store_simulation_result": {
+          "type": "boolean"
+        },
+        "store_policy_decision": {
+          "type": "boolean"
+        },
+        "store_approval": {
+          "type": "boolean"
+        },
+        "store_final_signature": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

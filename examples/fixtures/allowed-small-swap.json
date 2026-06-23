@@ -1,0 +1,35 @@
+{
+  "fixture_id": "allowed-small-swap",
+  "expected_decision": "ALLOW",
+  "policy_hint": "trading-agent-policy.json",
+  "intent": {
+    "action": "swap",
+    "asset_in": "SOL",
+    "amount_in_sol": 0.005,
+    "asset_out": "USDC",
+    "max_slippage_bps": 30
+  },
+  "decoded_transaction": {
+    "programs": [
+      "jupiter",
+      "spl-token",
+      "associated-token-account",
+      "system-program"
+    ],
+    "unknown_programs": [],
+    "actions": [
+      "swap"
+    ],
+    "sol_spend": 0.005,
+    "balance_percent": 1,
+    "new_recipient": false,
+    "authority_changes": [],
+    "closes_accounts": false
+  },
+  "simulation": {
+    "status": "pass",
+    "err": null,
+    "warnings": [],
+    "units_consumed": 85000
+  }
+}

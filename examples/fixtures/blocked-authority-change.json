@@ -1,0 +1,30 @@
+{
+  "fixture_id": "blocked-authority-change",
+  "expected_decision": "BLOCK",
+  "policy_hint": "conservative-agent-policy.json",
+  "intent": {
+    "action": "set_authority"
+  },
+  "decoded_transaction": {
+    "programs": [
+      "spl-token"
+    ],
+    "unknown_programs": [],
+    "actions": [
+      "change_authority"
+    ],
+    "sol_spend": 0,
+    "balance_percent": 0,
+    "new_recipient": false,
+    "authority_changes": [
+      "close_authority"
+    ],
+    "closes_accounts": false
+  },
+  "simulation": {
+    "status": "pass",
+    "err": null,
+    "warnings": [],
+    "units_consumed": 3000
+  }
+}
